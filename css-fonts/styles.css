@@ -1,0 +1,11 @@
+h1, body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-family: 'STIX Two Text', serif;
+}
+
+body {
+  line-height: 1.5em;
+}
