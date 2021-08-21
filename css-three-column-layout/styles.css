@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   font-family: 'Lato', sans-serif;
@@ -11,12 +11,11 @@ body {
 
 .row {
   display: flex;
-  justify-content: center;
 }
 
 .column-one-third {
   flex-basis: calc(100% / 3);
-  padding: 10px;
+  padding: 0 20px;
 }
 
 .white-text {
@@ -31,29 +30,55 @@ body {
   text-align: center;
 }
 
-.font-size {
-  font-size: 1.2rem;
+.font-size-header {
+  font-size: 1.3rem;
+}
+
+.font-size-paragraph {
+  font-size: 0.9rem;
 }
 
 .white-circle {
   background-color: white;
   border-radius: 50%;
-  padding: 20%;
-}
-
-.icon {
-  padding: 10%;
-  width: 256px;
-  height: 256px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex-items-center {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
-img {
+.icon-size {
+  width: 50%;
+  height: 50%;
+}
+
+.full-width {
   width: 100%;
+}
+
+.padding-8 {
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+.line-height {
+  line-height: 1.2rem;
+}
+
+.margin-header {
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-bottom: 0;
+  margin-top: 30px;
+  font-size: 1.3rem;
 }
