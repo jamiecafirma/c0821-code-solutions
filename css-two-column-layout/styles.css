@@ -1,0 +1,102 @@
+.container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Karla', sans-serif;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-half {
+  flex-basis: 50%;
+}
+
+.column-fifth {
+  flex-basis: 20%;
+}
+
+.column-four-fifths {
+  flex-basis: 80%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.line-height {
+  line-height: 2rem;
+}
+
+.all-caps {
+  text-transform: uppercase;
+}
+
+.font-size-header {
+  font-size: 48px;
+}
+
+.letter-spacing-title {
+  letter-spacing: 0.3rem;
+}
+
+.letter-spacing-subtitle {
+  letter-spacing: 0.1rem;
+}
+
+.padding-header {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.margin-header {
+  margin-bottom: 24px;
+}
+
+.padding-main {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  padding-right: 20%;
+}
+
+.margin-main {
+  margin-top: 40px;
+}
+
+.pl-70 {
+  padding-left: 70px;
+}
+
+.subtitle-width {
+  width: 75%;
+}
+
+.text-color {
+  color: #4f4f4f;
+}
+
+.button-center {
+  justify-content: center;
+}
+
+.button-style {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #d24c45;
+  border: solid #d24c45 2px;
+  background-color: white;
+  width: 220px;
+  height: 45px;
+  letter-spacing: 0.1rem;
+}
