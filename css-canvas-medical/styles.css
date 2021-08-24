@@ -37,16 +37,6 @@
   margin-bottom: 5px;
 }
 
-.clinicians-heading {
-  width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.clinicians-body {
-  margin: 40px 80px;
-}
-
 .text-align-center {
   text-align: center;
 }
@@ -125,26 +115,57 @@
   height: 35px;
 }
 
-.header-section {
-  height: 80px;
+hr {
+  border-top: solid rgba(139, 139, 139, 0.05) 1px;
 }
 
-.clinicians-section {
-  height: 460px;
+.hero-image {
+  position: relative;
+  background-image: url(images/hero.jpg);
+  background-color: #525351;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 60px 80px;
 }
 
-.schedule-section {
-  height: 150px;
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
-.address-section {
-  height: 400px;
-  padding-top: 100px;
-  padding-bottom: 100px;
+.hero-image-content {
+  position: absolute;
+  left: 60px;
+  top: 80px;
+  width: 50%;
 }
 
-.footer-section {
-  height: 100px;
+.hero-image-content > h2 {
+  font-size: 36px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hero-image-content > button {
+  margin-top: 20px;
+}
+
+.clinicians-heading {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clinicians-body {
+  margin: 40px 80px;
 }
 
 .address-link {
@@ -181,4 +202,27 @@
   color: #a1a1a1;
   margin-left: 25px;
   margin-right: 25px;
+}
+
+.header-section {
+  height: 60px;
+}
+
+.clinicians-section {
+  height: 460px;
+  border-bottom: solid rgba(139, 139, 139, 0.1) 1px;
+}
+
+.schedule-section {
+  height: 150px;
+}
+
+.address-section {
+  height: 400px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.footer-section {
+  height: 100px;
 }
