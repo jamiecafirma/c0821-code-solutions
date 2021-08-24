@@ -1,0 +1,32 @@
+.container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Barlow', sans-serif;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-fourth {
+  flex-basis: 25%;
+}
+
+.heading-style {
+  font-weight: 800;
+}
+
+.screen-style {
+  width: 360px;
+  height: auto;
+}
+
+.icon-style {
+  width: 60px;
+  height: auto;
+}
