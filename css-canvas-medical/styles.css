@@ -1,0 +1,228 @@
+.container {
+  font-family: 'Avenir', sans-serif;
+  font-weight: 500;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-half {
+  flex-basis: 100%;
+}
+
+.column-two-thirds {
+  flex-basis: calc(200% / 3);
+}
+
+.column-third {
+  flex-basis: calc(100% / 3);
+}
+
+.column-fourth {
+  flex-basis: 25%;
+}
+
+.margin-80 {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.margin-5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.right-align {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.dark-gray-text {
+  color: #666565;
+}
+
+.white-text {
+  color: white;
+}
+
+.light-gray-bg {
+  background-color: #fafafa;
+}
+
+.dark-gray-bg {
+  background-color: #525351;
+}
+
+.text-font-size {
+  font-size: 14px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.double-spacing {
+  line-height: 1.5rem;
+}
+
+.heading-font {
+  font-family: 'Tiempos Headline', serif;
+  font-weight: 300;
+  font-size: 26px;
+}
+
+.button-style {
+  background-color: #294463;
+  color: white;
+  font-family: 'Avenir', sans-serif;
+  border: none;
+  border-radius: 4px;
+}
+
+.get-started-button {
+  font-size: 15px;
+  width: 160px;
+  height: 45px;
+}
+
+.contact-us-button {
+  font-size: 14px;
+  width: 100px;
+  height: 35px;
+}
+
+hr {
+  border-top: solid rgba(139, 139, 139, 0.05) 1px;
+}
+
+.hero-image {
+  position: relative;
+  background-image: url(images/hero.jpg);
+  background-color: #525351;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 60px 80px;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.hero-image-content {
+  position: absolute;
+  left: 60px;
+  top: 80px;
+  width: 50%;
+}
+
+.hero-image-content > h2 {
+  font-size: 36px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hero-image-content > button {
+  margin-top: 20px;
+}
+
+.clinicians-heading {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clinicians-body {
+  margin: 40px 80px;
+}
+
+.address-link {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 20px;
+  margin-right: 160px;
+}
+
+.logo-style {
+  width: 135px;
+  height: 26px;
+}
+
+.address-style {
+  font-style: normal;
+  line-height: 0.6rem;
+  margin-top: 45px;
+  margin-bottom: 45px;
+}
+
+.footer-item {
+  padding-right: 40px;
+}
+
+.link-style {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #a1a1a1;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.header-section {
+  height: 60px;
+}
+
+.clinicians-section {
+  height: 460px;
+  border-bottom: solid rgba(139, 139, 139, 0.1) 1px;
+}
+
+.schedule-section {
+  height: 150px;
+}
+
+.address-section {
+  height: 400px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.footer-section {
+  height: 100px;
+}
