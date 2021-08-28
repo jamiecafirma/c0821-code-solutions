@@ -6,7 +6,6 @@
 // - if input matches a vowel
 //  - set output as true
 //  - return output
-// - otherwise, set output as false
 // return output
 
 function isVowel(char) {
@@ -16,8 +15,6 @@ function isVowel(char) {
     if (char.toLowerCase() === vowelCheck[i]) {
       vowel = true;
       return vowel;
-    } else {
-      vowel = false;
     }
   }
   return vowel;
