@@ -18,11 +18,21 @@
 function reverseWords(string) {
   var reversedString = '';
   var currentWord = '';
-  function reverseWord(word) {
+  function reverseOneWord(word) {
     var reversedWord = '';
     for (var r = word.length - 1; r >= 0; r--) {
       reversedWord += word[r];
     }
     return reversedWord;
   }
+  for (var i = 0; i < string.length; i++) {
+    if (string[i] === ' ') {
+      reversedString += reverseOneWord(currentWord) + ' ';
+      currentWord = '';
+    } else {
+      currentWord += string[i];
+    }
+  }
+  reversedString += reverseOneWord(currentWord);
+  return reversedString;
 }
