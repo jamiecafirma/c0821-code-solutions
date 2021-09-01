@@ -1,0 +1,44 @@
+body {
+  box-sizing: border-box;
+  font-family: monospace;
+  font-size: 24px;
+}
+
+.size-100 {
+  width: 100%;
+  height: 100vh;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.correct {
+  color: #1ece20;
+}
+
+.wrong {
+  color: #f80908;
+  border-bottom: solid #f80908 5px;
+}
+
+.current-character {
+  padding-bottom: 5px;
+  border-bottom: solid black 5px;
+}
+
+span {
+  white-space: pre;
+}
