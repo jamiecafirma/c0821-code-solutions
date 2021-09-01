@@ -1,11 +1,26 @@
 /* exported isAnagram */
 
-// look at each character in the first string
-// if the current character is a space, skip it
-// look at each character in the second string
-// if the current character is a space, skip it
-// if the character in the first string can be found in the second string, remove the character from each word
-// if the character is not found in second string at all, return false
+// create storage for the first and second string in array form
+// create storage for the first and second arrays with no spaces
+// create storage for the arrays to be converted back to string form
+// separate each character in the string and put them in a list
+// create a function to remove the spaces from these lists
+// - create storage for the output
+// - look at each character in the word
+//  - if the current character is not a space
+//    - add the current character to the output
+// - return the storage
+// remove the spaces from both the first and second lists
+// sort the first and second lists by alphabetical order
+// create a function to convert the list back into one word
+// - create an output
+// - look at each character in the list
+//  - add the current character to the output
+// - return the output
+// convert the lists back into words
+// if the first word matches the second word exactly
+// - return true
+// otherwise, return false
 
 function isAnagram(firstString, secondString) {
   var first = [];
