@@ -1,31 +1,46 @@
 /* exported isAnagram */
 
-// create storage for a test if secondString reorganized is the same as firstString
-// create storage for the firstString without any spaces
-// look at each character in secondString
-// - if current character is not a space
-//  - look at each character in firstString
-//    - if current character in firstString is not a space and matches current character in secondString
-//      - add current character of secondString to the test if secondString is an anagram
-//      - add current character of firstString to the version without any spaces
-// if anagram test for secondString and the no spaces version of firstString match exactly
-// - return true
-// otherwise, return false
+// look at each character in the first string
+// if the current character is a space, skip it
+// look at each character in the second string
+// if the current character is a space, skip it
+// if the character in the first string can be found in the second string, remove the character from each word
+// if the character is not found in second string at all, return false
 
 function isAnagram(firstString, secondString) {
-  var reorganized = '';
-  var noSpaces = '';
-  for (var s = 0; s < secondString.length; s++) {
-    if (secondString[s] !== ' ') {
-      for (var f = 0; f < firstString.length; f++) {
-        if (firstString[f] !== ' ' && firstString[f] === secondString[s]) {
-          reorganized += secondString[s];
-          noSpaces += firstString[f];
-        }
+  var first = [];
+  var second = [];
+  var firstNoSpace = [];
+  var secondNoSpace = [];
+  var firstTest = '';
+  var secondTest = '';
+  first = firstString.split('');
+  second = secondString.split('');
+  function noSpaces(word) {
+    var output = [];
+    for (var i = 0; i < word.length; i++) {
+      if (word[i] !== ' ') {
+        output.push(word[i]);
       }
     }
+    return output;
   }
-  if (reorganized === noSpaces) {
+  firstNoSpace = noSpaces(first);
+  secondNoSpace = noSpaces(second);
+  firstNoSpace.sort();
+  secondNoSpace.sort();
+  function makeString(array) {
+    var output = '';
+    for (var i = 0; i < array.length; i++) {
+      output += array[i];
+    }
+    return output;
+  }
+
+  firstTest = makeString(firstNoSpace);
+  secondTest = makeString(secondNoSpace);
+
+  if (firstTest === secondTest) {
     return true;
   }
   return false;
