@@ -7,17 +7,11 @@
 // - user can only move on to the next key if the correct character is typed
 
 var $characters = document.querySelectorAll('span');
-var correctKey;
 var index = 0;
 var currentKey = $characters[index];
 
 function typingLesson(event) {
   if (event.key === $characters[index].textContent) {
-    correctKey = true;
-  } else {
-    correctKey = false;
-  }
-  if (correctKey === true) {
     currentKey.className = 'correct';
     index++;
     currentKey = $characters[index];
