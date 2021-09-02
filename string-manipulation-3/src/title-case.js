@@ -21,15 +21,25 @@
 //    - add API to the output and current character
 //    - clear the current word
 //  - if the second to last character in the output is a colon
-//   - capitalize the current word, add the word to the output, then current character
-//   - clear the current word
+//    - capitalize the current word, add the word to the output, then current character
+//    - clear the current word
 //  - if the current word is four characters or more
-//   - capitalize the current word, then add the word and current character to the output
-//   - clear the current word
-//  - if the current word lowercase matches any word in the exceptions list
-//   - add the word, in lowercase, to the output, then current character
-//   - clear the current word
-// - otherwise, add the current character to the current word
+//    - capitalize the current word, then add the word and current character to the output
+//    - clear the current word
+//  - if the current word is less than four characters
+//    - look at each character in the current word
+//      - if the current word lowercase matches any word in the exceptions list
+//        - add the word, in lowercase, to the output, then current character of the title
+//        - clear the current word
+//    - if the current word wasn't added to the output
+//      - capitalize the current word, then add the word and current character to the output
+//      - clear the current word
+//  - otherwise, add the current character to the current word
+// if the current word lowercase matches javascript
+//  - add JavaScript to the output
+// if the current word lowercase matches api
+//  - add API to the output
+// otherwise, capitalize the current word and add it to the output
 // return the output
 
 function titleCase(title) {
