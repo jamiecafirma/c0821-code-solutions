@@ -69,7 +69,9 @@
 // - look at each character in the string
 //  - if the current character is a property in the output
 //    - add one to its value
-//  - otherwise, add the current character as a property in the output with a value of 1
+//  - if the current character is not a space
+//    - add the current character as a property in the output with a value of 1
+// - return output
 // turn the first string into an object
 // turn the second string into an object
 // look at each property in the second object
@@ -78,10 +80,28 @@
 // return true
 
 function isAnagram(firstString, secondString) {
-  var firstChars = {};
-  var secondChars = {};
+  var firstChars;
+  var secondChars;
 
   function stringToObj(string) {
-
+    var object = {};
+    for (var i = 0; i < string.length; i++) {
+      if (object[string[i]] !== undefined) {
+        object[string[i]]++;
+      } else if (string[i] !== ' ') {
+        object[string[i]] = 1;
+      }
+    }
+    return object;
   }
+
+  firstChars = stringToObj(firstString);
+  secondChars = stringToObj(secondString);
+
+  for (var char in secondChars) {
+    if (secondChars[char] !== firstChars[char]) {
+      return false;
+    }
+  }
+  return true;
 }
