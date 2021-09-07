@@ -39,7 +39,7 @@
 //  - add JavaScript to the output
 // if the current word lowercase matches api
 //  - add API to the output
-// otherwise, capitalize the current word and add it to the output
+// otherwise, capitalize the current word and
 // return the output
 
 function titleCase(title) {
