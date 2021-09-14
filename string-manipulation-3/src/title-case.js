@@ -75,13 +75,7 @@ function titleCase(title) {
       } else if (currentWord.toLowerCase() === 'api:') {
         apaTitle += 'API:' + title[char];
         currentWord = '';
-      } else if (apaTitle === '') {
-        apaTitle += capitalize(currentWord) + title[char];
-        currentWord = '';
-      } else if (apaTitle[apaTitle.length - 2] === ':') {
-        apaTitle += capitalize(currentWord) + title[char];
-        currentWord = '';
-      } else if (currentWord.length >= 4) {
+      } else if (apaTitle === '' || apaTitle[apaTitle.length - 2] === ':' || currentWord.length >= 4) {
         apaTitle += capitalize(currentWord) + title[char];
         currentWord = '';
       } else if (currentWord.length < 4) {
