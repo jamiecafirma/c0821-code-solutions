@@ -59,6 +59,21 @@ function cardGame(players, hand) {
     return output;
   }
 
+  function calculateScore(currentPlayer) {
+    var calculated = 0;
+    for (var card = 0; card < hand; card++) {
+      if (currentPlayer.cardHand[card].rank === 'ace') {
+        calculated += 11;
+      } else if (currentPlayer.cardHand[card].rank === 'jack' || cardPlayers[player].cardHand[card].rank === 'queen' || cardPlayers[player].cardHand[card].rank === 'king') {
+        calculated += 10;
+      } else {
+        calculated += currentPlayer.cardHand[card].rank;
+      }
+      currentPlayer.score = calculated;
+    }
+    return calculated;
+  }
+
   for (var i = 0; i < players.length; i++) {
     var currentPlayer = {};
     currentPlayer.name = players[i];
@@ -71,17 +86,7 @@ function cardGame(players, hand) {
     for (var deal = 0; deal < hand; deal++) {
       cardPlayers[player].cardHand.push(shuffled.shift());
     }
-    var playerScore = 0;
-    for (var card = 0; card < hand; card++) {
-      if (cardPlayers[player].cardHand[card].rank === 'ace') {
-        playerScore += 11;
-      } else if (cardPlayers[player].cardHand[card].rank === 'jack' || cardPlayers[player].cardHand[card].rank === 'queen' || cardPlayers[player].cardHand[card].rank === 'king') {
-        playerScore += 10;
-      } else {
-        playerScore += cardPlayers[player].cardHand[card].rank;
-      }
-      cardPlayers[player].score = playerScore;
-    }
+    cardPlayers[player].score = calculateScore(cardPlayers[player]);
     if (cardPlayers[player].score > highestScorer.score) {
       highestScorer = cardPlayers[player];
     }
