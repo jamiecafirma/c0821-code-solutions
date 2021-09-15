@@ -7,19 +7,19 @@ function Account(number, holder) {
 }
 
 Account.prototype.deposit = function (amount) {
-  var newDeposit = new Transaction('deposit', amount);
   if (amount <= 0 || Number.isInteger(amount) === false) {
     return false;
   }
+  var newDeposit = new Transaction('deposit', amount);
   this.transactions.push(newDeposit);
   return true;
 };
 
 Account.prototype.withdraw = function (amount) {
-  var newWithdrawal = new Transaction('withdrawal', amount);
   if (amount <= 0 || Number.isInteger(amount) === false) {
     return false;
   }
+  var newWithdrawal = new Transaction('withdrawal', amount);
   this.transactions.push(newWithdrawal);
   return true;
 };
