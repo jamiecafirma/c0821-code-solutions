@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Carousel</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container justify-center align-center">
+    <div class="row image-window">
+      <div class="column-sixth align-center arrow-padding">
+        <i class="fas fa-chevron-left" id="previous-button"></i>
+      </div>
+      <div class="column-two-thirds flex-column justify-center align-center">
+        <div class="view" data-view="pikachu">
+          <img src="images/025.png" alt="pikachu">
+        </div>
+        <div class="view hidden" data-view="bulbasaur">
+          <img src="images/001.png" alt="bulbasaur">
+        </div>
+        <div class="view hidden" data-view="charizard">
+          <img src="images/004.png" alt="charizard">
+        </div>
+        <div class="view hidden" data-view="squirtle">
+          <img src="images/007.png" alt="squirtle">
+        </div>
+        <div class="view hidden" data-view="jigglypuff">
+          <img src="images/039.png" alt="jigglypuff">
+        </div>
+        <div class="dots-container justify-center">
+          <i class="fas fa-circle" data-view="pikachu" data-index="1"></i>
+          <i class="far fa-circle" data-view="bulbasaur" data-index="2"></i>
+          <i class="far fa-circle" data-view="charizard" data-index="3"></i>
+          <i class="far fa-circle" data-view="squirtle" data-index="4"></i>
+          <i class="far fa-circle" data-view="jigglypuff" data-index="5"></i>
+        </div>
+      </div>
+      <div class="column-sixth justify-right align-center arrow-padding">
+        <i class="fas fa-chevron-right" id="next-button"></i>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
