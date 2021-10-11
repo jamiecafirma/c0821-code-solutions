@@ -5,16 +5,6 @@ const notesJSON = require('./data.json');
 
 app.use('/', express.json());
 
-function rewriteNotes(notes) {
-  const updatedNotes = JSON.stringify(notes, null, 2);
-  fs.writeFile('data.json', updatedNotes, 'utf-8', function (err, res) {
-    if (err) {
-      res.status(500).json({ error: 'An unexpected error occurred.' });
-      process.exit(1);
-    }
-  });
-}
-
 app.get('/api/notes', (req, res) => {
   const notesArr = [];
   for (const id in notesJSON.notes) {
@@ -43,8 +33,14 @@ app.post('/api/notes', (req, res) => {
     newNote.id = notesJSON.nextId;
     notesJSON.notes[notesJSON.nextId] = newNote;
     notesJSON.nextId++;
-    rewriteNotes(notesJSON);
-    res.status(201).json(newNote);
+    const updatedNotes = JSON.stringify(notesJSON, null, 2);
+    fs.writeFile('data.json', updatedNotes, 'utf-8', function (err) {
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occurred.' });
+      } else {
+        res.status(201).json(newNote);
+      }
+    });
   }
 });
 
@@ -57,8 +53,14 @@ app.delete('/api/notes/:id', (req, res) => {
     res.status(404).json({ error: 'Note does not exist at inputted id' });
   } else {
     delete notesJSON.notes[deleteKey];
-    rewriteNotes(notesJSON);
-    res.status(204).json();
+    const updatedNotes = JSON.stringify(notesJSON, null, 2);
+    fs.writeFile('data.json', updatedNotes, 'utf-8', function (err) {
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occurred.' });
+      } else {
+        res.status(204).json();
+      }
+    });
   }
 });
 
@@ -74,8 +76,14 @@ app.put('/api/notes/:id', (req, res) => {
     res.status(404).json({ error: 'Note cannot be found at inputted id' });
   } else {
     notesJSON.notes[replaceKey].content = newNote.content;
-    rewriteNotes(notesJSON);
-    res.status(200).json(notesJSON.notes[replaceKey]);
+    const updatedNotes = JSON.stringify(notesJSON, null, 2);
+    fs.writeFile('data.json', updatedNotes, 'utf-8', function (err) {
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occurred.' });
+      } else {
+        res.status(200).json(notesJSON.notes[replaceKey]);
+      }
+    });
   }
 });
 
