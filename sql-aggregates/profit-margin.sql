@@ -26,7 +26,7 @@ with "cteFilmCost" as (
          sum("inventory"."inventoryId") as "totalCopies"
          from "films"
          join "inventory" using ("filmId")
-         group by "films"."filmId"
+        group by "films"."filmId"
 )
 with "cteFilmRevenue" as (
   select "films"."filmId",
@@ -35,6 +35,15 @@ with "cteFilmRevenue" as (
          join "inventory" using ("filmId")
          join "rentals" using ("inventoryId")
          join "payments" using ("rentalId")
-         group by "films"."filmId"
+        group by "films"."filmId"
 )
 select "films"."title",
+       "films"."description",
+       "films"."rating",
+       "cteFilmRevenue"."revenue" - "cteFilmCost"."totalCost" as "profit"
+       from "films"
+       join "cteFilmCost" using "films"."filmId",
+       join "cteFilmRevenue" using "films"."filmId"
+      group by "films"."filmId"
+      order by "profit" desc
+      limit 5;
