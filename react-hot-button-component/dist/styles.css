@@ -1,0 +1,27 @@
+.white-text {
+  color: white;
+}
+
+.cold {
+  background-color: #341c75;
+}
+
+.cool {
+  background-color: #674ea7;
+}
+
+.warm {
+  background-color: #e06666;
+}
+
+.hot {
+  background-color: #f6b26b;
+}
+
+.boiling {
+  background-color: #fffa05;
+}
+
+.ouch {
+  background-color: white;
+}
