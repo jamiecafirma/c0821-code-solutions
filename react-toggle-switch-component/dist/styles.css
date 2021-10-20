@@ -1,0 +1,50 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.ml-1rem {
+  margin-left: 1rem;
+}
+
+.font-size-2rem {
+  font-size: 2rem;
+}
+
+.sans-serif {
+  font-family: sans-serif;
+}
+
+.switch-bg {
+  position: relative;
+  background-color: gray;
+  width: 90px;
+  height: 48px;
+  border-radius: 48px;
+  border: solid 1px gray;
+}
+
+.switch {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  border: solid 1px gray;
+}
+
+.switch-bg-on {
+  background-color: #13b950;
+}
+
+.switch-off {
+  left: 0;
+}
+
+.switch-on {
+  right: 0;
+}
