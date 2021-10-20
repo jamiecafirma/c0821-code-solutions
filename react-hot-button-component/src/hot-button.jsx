@@ -5,12 +5,10 @@ export default class HotButton extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = { clickCount: 0 };
-    this.count = 0;
   }
 
   handleClick() {
-    this.count++;
-    this.setState({ clickCount: this.count });
+    this.setState({ clickCount: this.state.clickCount + 1 });
   }
 
   render() {
