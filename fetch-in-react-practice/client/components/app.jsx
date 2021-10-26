@@ -54,19 +54,11 @@ export default class App extends React.Component {
   }
 
   toggleCompleted(todoId) {
-    const toggleToDo = {};
     for (let i = 0; i < this.state.todos.length; i++) {
       if (this.state.todos[i].todoId === todoId) {
         const targetToDo = this.state.todos[i];
         const targetIndex = i;
-        let updatedToDo;
-        if (targetToDo.isCompleted === false) {
-          toggleToDo.isCompleted = true;
-          updatedToDo = Object.assign(targetToDo, toggleToDo);
-        } else {
-          toggleToDo.isCompleted = false;
-          updatedToDo = Object.assign(targetToDo, toggleToDo);
-        }
+        const updatedToDo = Object.assign({}, targetToDo, { isCompleted: !targetToDo.isCompleted });
         const myInit = {
           method: 'PATCH',
           headers: {
