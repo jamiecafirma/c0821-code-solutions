@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  border-bottom: solid 1px black;
+}
+
+p {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.topic-header {
+  background-color: #ddd;
+  border: solid 1px black;
+  padding: 0 1rem;
+}
+
+.topic-body {
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  padding: 1rem;
+  line-height: 1.5;
+}
