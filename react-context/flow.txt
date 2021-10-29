@@ -1,0 +1,132 @@
+User can sign up:
+- Client -
+-- In index.jsx, the App component is imported and used in a React
+    element that is rendered on the root div of index.html
+-- In app.jsx, the class App has a render method that renders two
+    React elements of type Navbar and PageContainer, and the
+    PageContainer component has one child element, the return of
+    the renderPage method of the class App
+-- In app.jsx, the class App has a renderPage method that looks
+    at the path property of the route property of the state of the
+    App component and returns a React element of type Auth (which
+    was imported from auth.jsx) if the path is strictly equal to the
+    string 'sign-up'
+-- In auth.jsx, the class AuthPage renders the sign up page because
+    the current path is 'sign-up'. One of the divs contains a
+    child React component of type AuthForm and takes props key,
+    action, and handleSignIn
+-- In auth-form.jsx, the class AuthForm renders the sign up form and
+    has inputs that listen for onChange events. When the value of the
+    input changes, the handleChange method of the AuthForm class is
+    called, which updates the state's username and password props.
+    The form listens for submit events, and calls the AuthForm
+    class's handleSubmit method, which calls the fetch method to
+    post the serialized form of the user's inputs to the server
+- Server -
+-- In index.js, the post method of the app object with the path
+    '/api/auth/sign-up' handles the post request. If the user
+    provides both a username and password, the hash method of
+    the argon2 object from the argon2 package is used to hash the
+    user's password. When the hashed password is returned, a query
+    (which inserts the user's info into the database and returns the
+    userId, username, and createdAt columns) is sent to the
+    database. If the query is successful, the result is stored in
+    a user object, which is then sent back to the client using the
+    201 status method of the res object to tell the server side
+    that the query was a success and the json method of the return
+    of the status method of the response object to tell the client
+    side the same thing. If anything goes wrong during this process,
+    the catch method of the method chain will take the error and
+    pass it to express to be dealt with
+- Back to Client -
+-- In auth-form.jsx, the then method of the fulfilled promise
+    (the response from the server) returned from the fetch request
+    is called with a callback function that will reassign the value
+    of the hash prop of the location prop of the window object to
+    'sign-in', which takes the user back to the sign-in page
+
+User can sign in:
+- Client -
+-- In index.jsx, the App component is imported and used in a React
+    element that is rendered on the root div of index.html
+-- In app.jsx, the class App has a render method that renders two
+    React elements of type Navbar and PageContainer, and the
+    PageContainer component has one child element, the return of
+    the renderPage method of the class App
+-- In app.jsx, the class App has a renderPage method that looks
+    at the path property of the route property of the state of the
+    App component and returns a React element of type Auth (which
+    was imported from auth.jsx) if the path is strictly equal to the
+    string 'sign-in'
+-- In auth.jsx, the class AuthPage renders the sign in page because
+    the current path is 'sign-in'. One of the divs contains a
+    child React component of type AuthForm
+-- In auth-form.jsx, the class AuthForm renders the sign in form and
+    has inputs that listen for onChange events. When the value of the
+    input changes, the handleChange method of the AuthForm class is
+    called, which updates the state's username and password props.
+    The form listens for submit events, and calls the AuthForm
+    class's handleSubmit method, which calls the fetch method to
+    post the serialized form of the user's inputs to the server
+- Server -
+-- In index.js, the post method of the app object with the path
+    '/api/auth/sign-up' handles the post request. If the user
+    provides both a username and password, a query (which selects
+    the userId and hashedPassword columns from the users table)
+    is sent to the database. If the query is successful, the result
+    is stored in a user object, which is destructured into userId
+    and hashedPassword objects. The verify method of the argon2
+    object checks if the hashedPassword and the user inputted
+    password match. The then method is called on the result of the
+    verify method, and if the passwords match, a payload object
+    is created with the user info, and a token variable is created
+    by calling the sign method of the jwt object from the
+    jsonwebtoken package with two arguments: the payload object and
+    the token from the environment variables. The json method of
+    the response object sends the user an object containing the
+    user's token and payload, if the query is successful. If
+    anything goes wrong during this process, the catch method of
+    the method chain will take the error and pass it to express
+    to be dealt with
+- Back to Client -
+-- In auth-form.jsx, if a valid user and token are returned, the
+    then method of the fulfilled promise (the response from the
+    server) returned from the fetch request is called with a
+    callback function that will call the handleSignIn method of the
+    App component, which sends the token to local storage and
+    updates the state with the current user object
+-- In auth.jsx, the page is rendered again after the state is
+    updated, and now that the user is truthy, a React element of
+    type Redirect (from the redirect.jsx module) is returned,
+    which updates the value of the hash property of the location
+    property of the window object.
+-- In app.jsx, the page is rendered again after the state is
+    updated, and the renderPage method is called. Since the path
+    has been updated to an empty string, a React element of type
+    Home (from the home.jsx module) is returned. The user is shown
+    the home page
+
+User can stay signed in:
+-- In app.jsx, every time a page is refreshed and rendered again,
+    the componentDidMount method is called. The method checks the
+    local storage for a valid token using the decodeToken function
+    from the decode-token.js module. The state is updated with the
+    returned user object and the renderPage method is called in the
+    render method, returning the Home component
+-- In home.jsx, if the user is not valid, the Redirect component
+    is returned, sending the user to the sign-in page. Otherwise,
+    the home page is returned.
+
+User can sign out:
+-- In app.jsx, a React element of type Navbar is returned from the
+    render method
+-- In navbar.jsx, one of the child elements is a sign out button
+    that listens for click events. If clicked, the handleSignOut
+    method of the App component is called
+-- In app.jsx, the token is removed from the local storage and the
+    user property of the state is updated to have a value of null.
+    The renderPage method is called in the render method, returning
+    the Home component
+-- In home.jsx, since the user object evaluates to falsy, the
+    Redirect component is returned, sending the user to the sign-in
+    page.
