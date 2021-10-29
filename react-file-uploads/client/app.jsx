@@ -28,7 +28,7 @@ export default class App extends React.Component {
     };
     fetch('/api/uploads', init)
       .then(result => {
-        result.json();
+        return result.json();
       })
       .then(entry => {
         console.log(entry);
